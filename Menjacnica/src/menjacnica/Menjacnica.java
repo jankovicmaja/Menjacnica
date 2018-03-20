@@ -40,20 +40,47 @@ public class Menjacnica implements MenjacnicaInterfejs{
 	@Override
 	public void dodajKurs(String ime, String skracenoIme, GregorianCalendar datum, double prodajniKurs,
 			double kupovniKurs, double srednjiKurs) {
-		// TODO Auto-generated method stub
+		Valuta v=new Valuta();
+		v.setDatum(datum);
+		v.setIme(ime);
+		v.setSkracenoIme(skracenoIme);
+		v.setProdajniKurs(prodajniKurs);
+		v.setSrednjiKurs(srednjiKurs);
+		v.setKupovniKurs(kupovniKurs);
+		
+		for (int i = 0; i < valute.size(); i++) {
+			if(valute.get(i)==null) {
+				valute.add(v);
+				break;
+			}
+		}
 		
 	}
 
 	@Override
 	public void brisanjeKursaNaOdredjeniDan(String skracenoIme, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < valute.size(); i++) {
+			Valuta v=valute.get(i);
+			if(v.getDatum().get(GregorianCalendar.DAY_OF_MONTH)==datum.get(GregorianCalendar.DAY_OF_MONTH) &&
+					v.getSkracenoIme().equals(skracenoIme)) {
+				valute.remove(v);
+				break;
+			}
+		}
 		
 	}
 
 	@Override
 	public Valuta vratiKurs(String skracenoIme, GregorianCalendar datum) {
-		// TODO Auto-generated method stub
-		return null;
+		Valuta v=new Valuta();
+		for (int i = 0; i < valute.size(); i++) {
+			if(valute.get(i).getDatum().get(GregorianCalendar.DAY_OF_MONTH)==datum.get(GregorianCalendar.DAY_OF_MONTH) &&
+					valute.get(i).getSkracenoIme().equals(skracenoIme)) {
+				v=valute.get(i);
+				break;
+			}
+		}
+		return v;
 	}
 	
 }
