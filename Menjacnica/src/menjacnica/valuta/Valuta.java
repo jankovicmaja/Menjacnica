@@ -13,36 +13,48 @@ public class Valuta {
 			return ime;
 		}
 		public void setIme(String ime) {
+			if(ime==null)
+				throw new RuntimeException("Atribut ne moze imati null vrednost");
 			this.ime = ime;
 		}
 		public String getSkracenoIme() {
 			return skracenoIme;
 		}
 		public void setSkracenoIme(String skracenoIme) {
+			if(skracenoIme==null)
+				throw new RuntimeException("Atribut ne moze imati null vrednost");
 			this.skracenoIme = skracenoIme;
 		}
 		public GregorianCalendar getDatum() {
 			return datum;
 		}
 		public void setDatum(GregorianCalendar datum) {
+			if(datum==null)
+				throw new RuntimeException("Atribut ne moze imati null vrednost");
 			this.datum = datum;
 		}
 		public double getProdajniKurs() {
 			return prodajniKurs;
 		}
 		public void setProdajniKurs(double prodajniKurs) {
+			if(prodajniKurs<0)
+				throw new RuntimeException("Atribut mora imati vrednost vecu od 0");
 			this.prodajniKurs = prodajniKurs;
 		}
 		public double getKupovniKurs() {
 			return kupovniKurs;
 		}
 		public void setKupovniKurs(double kupovniKurs) {
+			if(kupovniKurs<0)
+				throw new RuntimeException("Atribut mora imati vrednost vecu od 0");
 			this.kupovniKurs = kupovniKurs;
 		}
 		public double getSrednjiKurs() {
 			return srednjiKurs;
 		}
 		public void setSrednjiKurs(double srednjiKurs) {
+			if(srednjiKurs<0)
+				throw new RuntimeException("Atribut mora imati vrednost vecu od 0");
 			this.srednjiKurs = srednjiKurs;
 		}
 		@Override
