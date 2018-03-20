@@ -47,7 +47,12 @@ public class Menjacnica implements MenjacnicaInterfejs{
 		v.setProdajniKurs(prodajniKurs);
 		v.setKupovniKurs(kupovniKurs);
 		v.setDatum(datum);
-		valute.add(v);
+		for (int i = 0; i < valute.size(); i++) {
+			if(valute.get(i)==null) {
+				valute.add(v);
+				break;
+			}
+		}
 		
 		
 	}
